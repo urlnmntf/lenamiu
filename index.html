@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LenaMiu iPhone</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#e8e8ed;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif;color:#111}
+.phone{width:min(100%,400px);height:min(850px,100dvh);min-height:600px;margin:auto;background:#f5f5f7;position:relative;overflow:hidden}
+.status{height:32px;padding:8px 24px 0;display:flex;justify-content:space-between;font-size:13px;font-weight:700;position:relative;z-index:5}
+.screen{height:calc(100% - 32px);position:relative;overflow:hidden}
+.wallpaper{background:linear-gradient(155deg,#91b9ef,#c5c9ed 48%,#f2d7e7);color:white}
+.lock{position:absolute;inset:0;text-align:center;padding-top:65px}
+.date{font-size:16px}
+.clock{font-size:76px;font-weight:300;letter-spacing:-3px}
+.lock-photo{margin:35px auto 0;width:140px;height:140px;border-radius:30px;background:#ffffff40;border:1px solid #ffffff80;display:grid;place-items:center;font-size:48px}
+.hint{position:absolute;bottom:35px;width:100%;font-size:13px}
+.pass{position:absolute;inset:0;background:linear-gradient(155deg,#a9c9f5,#e8cde8);text-align:center;padding-top:65px;color:#fff}
+.pass h2{font-size:21px;font-weight:500}
+.dots{font-size:28px;letter-spacing:12px;height:42px}
+.keypad{display:grid;grid-template-columns:repeat(3,65px);gap:12px;justify-content:center;margin-top:14px}
+.key{height:65px;border:0;border-radius:50%;background:#ffffff55;color:white;font-size:25px}
+.key small{display:block;font-size:9px}
+.error{height:20px;font-size:12px}
+.home{position:absolute;inset:0;padding:25px 20px;background:linear-gradient(155deg,#87b4e7,#c9c9ee 50%,#f4d5e2);color:#fff}
+.welcome{text-align:center;margin:20px 0 25px;font-size:17px;text-shadow:0 1px 4px #777}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px 8px}
+.app{text-align:center;border:0;background:none;color:inherit;font-size:11px;cursor:pointer;min-width:0}
+.ico{width:54px;height:54px;border-radius:14px;margin:0 auto 6px;display:grid;place-items:center;font-size:29px;box-shadow:0 2px 6px #0002}
+.notes{background:#fff;color:#e8b82e}.camera{background:#333;color:#fff}.photos{background:#fff}
+.xapp{background:#000;color:#fff}.line{background:#06c755;color:#fff}
+.insta{background:linear-gradient(35deg,#ffd15c,#f12b7c,#8038d7);color:white}
+.msg{background:#35c759;color:#fff}
+.dock{position:absolute;bottom:22px;left:15px;right:15px;height:83px;border-radius:25px;background:#ffffff66;display:flex;align-items:center;justify-content:space-evenly}
+.dock .ico{margin:0;width:52px;height:52px}
+.appview{position:absolute;inset:0;background:#f7f7fa;color:#171717;display:none;flex-direction:column}
+.appbar{height:52px;padding:15px;border-bottom:1px solid #ddd;display:flex;justify-content:space-between;align-items:center;font-weight:600}
+.back{border:0;background:none;color:#087fff;font-size:15px}
+.content{padding:16px;overflow:auto;flex:1}
+.card{background:white;border-radius:14px;padding:14px;margin-bottom:12px;box-shadow:0 1px 3px #0001}
+.note{width:100%;min-height:180px;border:0;resize:vertical;font:16px inherit;background:#fff}
+.post{background:#fff;border:1px solid #ddd;border-radius:12px;margin-bottom:14px;overflow:hidden}
+.posthead{padding:12px;font-weight:600}
+.postpic{height:200px;background:linear-gradient(145deg,#e8cfe5,#a9c6ef);display:grid;place-items:center;font-size:55px}
+.post p{padding:0 12px}
+.post button{border:0;background:none;font-size:20px;padding:10px}
+.chat{padding:10px 12px;border-radius:18px;margin:10px 0;max-width:85%;background:#e5e5ea}
+.chat.me{margin-left:auto;background:#1685f8;color:white}
+.chatform{display:flex;gap:8px;padding:10px;border-top:1px solid #ddd}
+.chatform input{min-width:0;flex:1;border:1px solid #ccc;border-radius:18px;padding:10px}
+.chatform button{border:0;background:#1685f8;color:white;border-radius:18px;padding:0 14px}
+.homebar{height:5px;width:125px;background:#111;border-radius:5px;position:absolute;bottom:7px;left:calc(50% - 62px);z-index:10}
+.homebar.light{background:#fff}
+.photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
+.tile{aspect-ratio:1;background:linear-gradient(145deg,#b5d0ef,#efd8e7);display:grid;place-items:center;font-size:28px;overflow:hidden}
+.tile img{width:100%;height:100%;object-fit:cover}
+.small{font-size:12px;color:#777}
+button{cursor:pointer}
+</style>
+</head>
+<body>
+<div class="phone">
+  <div class="status"><span id="statusTime">9:41</span><span>●●●  Wi-Fi  ▰</span></div>
+  <div class="screen wallpaper">
+    <section class="lock" id="lock">
+      <div class="date" id="date"></div>
+      <div class="clock" id="clock">9:41</div>
+      <div class="lock-photo">🦋 ♡</div>
+      <div class="hint">Fan-made LenaMiu experience<br><br>Tap to continue</div>
+    </section>
+    <section class="pass" id="pass" style="display:none">
+      <div style="font-size:38px">🔒</div>
+      <h2>Enter Passcode</h2>
+      <div cla
